@@ -1,0 +1,17 @@
+<h1>Pokemon List</h1>
+
+<button routerLink="/create" > + </button>
+
+<div class="pokemonGrid">
+    <button class="pokemonCard" type="button"  *ngFor="let pokemon of pokemons">
+      <h2>{{ pokemon.name }}</h2>
+      <p> {{pokemon.id}}</p>
+      <p *ngFor="let type of pokemon.types"> {{type}}</p>
+      <div>
+        <button [routerLink]="'/edit/' + pokemon.id">Update</button>
+        <button type="button" (click)="deletePokemon(pokemon.id)">X</button>
+      </div>
+    </button>
+  </div>
+
+

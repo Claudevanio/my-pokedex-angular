@@ -1,0 +1,62 @@
+<!-- <p>Adicione um Pokemon</p>
+
+<form (submit)="onSubmit()">
+    <div>
+      <label for="name">Nome:</label>
+      <input type="text" name="name" [(ngModel)]="newPokemon.name">
+    </div>
+    <div>
+      <label for="id">ID:</label>
+      <input type="text" name="id" [(ngModel)]="newPokemon.id">
+    </div>
+    
+    <div>
+      <label for="types">Tipos:</label>
+      <mat-form-field appearance="fill">
+        <mat-select [formControl]="toppings" (selectionChange)="onSelectionChange()" multiple>
+          <mat-select-trigger>
+            {{toppings.value?.[0] || ''}}
+            <span *ngIf="(toppings.value?.length || 0) > 1" class="example-additional-selection">
+              (+{{(toppings.value?.length || 0) - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+            </span>
+          </mat-select-trigger>
+          <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button type="submit">Adicionar Pokémon</button>
+    </div>
+  </form>
+  
+  
+
+
+   -->
+
+
+   <p>Adicione um Pokemon</p>
+
+<form  (submit)="createPokemon()">
+    <div>
+      <label for="name">Nome:</label>
+      <input type="text" name="name" [(ngModel)]="newPokemon.name">
+    </div>
+    <div>
+      <label for="id">ID:</label>
+      <input type="text" name="id" [(ngModel)]="newPokemon.id">
+    </div>
+    <div>
+      <label for="types">Tipos:</label>
+      <mat-form-field appearance="fill">
+        <mat-select [formControl]="toppings" multiple (selectionChange)="onSelectionChangeTypes()">
+          <mat-select-trigger>
+            {{selectedTypes[0] || ''}}
+            <span *ngIf="(selectedTypes.length || 0) > 1" class="example-additional-selection">
+              (+{{(selectedTypes.length || 0) - 1}} {{selectedTypes.length === 2 ? 'other' : 'others'}})
+            </span>
+          </mat-select-trigger>
+          <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <button type="submit">Adicionar Pokémon</button>
+  </form>
